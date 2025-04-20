@@ -84,14 +84,20 @@ const restartButton = document.querySelector('#result button');
 
 let currentQuestionIndex = 0;
 const questionCount = questions.length;
+let nextButton; // Tanımı yukarı taşıdık
 
 // Başlangıçta sadece ilk soruyu göster
 questions[0].style.display = 'block';
 
-// "Sonraki" butonu oluştur ve ilk sorunun altına ekle
-const nextButton = document.createElement('button');
-nextButton.textContent = 'Sonraki';
-questions[0].appendChild(nextButton);
+// İlk "Sonraki" butonunu oluştur ve ilk sorunun altına ekle
+function createNextButton() {
+    const btn = document.createElement('button');
+    btn.textContent = 'Sonraki';
+    questions[currentQuestionIndex].appendChild(btn);
+    return btn;
+}
+
+nextButton = createNextButton();
 
 nextButton.addEventListener('click', () => {
     const currentQuestion = questions[currentQuestionIndex];
@@ -107,12 +113,8 @@ nextButton.addEventListener('click', () => {
 
     if (currentQuestionIndex < questionCount - 1) {
         questions[currentQuestionIndex].style.display = 'block';
-        // Yeni "Sonraki" butonunu bir sonraki sorunun altına ekle
-        const newNextButton = document.createElement('button');
-        newNextButton.textContent = 'Sonraki';
-        questions[currentQuestionIndex].appendChild(newNextButton);
-        nextButton.remove(); // Önceki "Sonraki" butonunu kaldır
-        nextButton = newNextButton; // Yeni butonu nextButton değişkenine ata
+        nextButton = createNextButton(); // Yeni butonu oluştur
+        nextButton.addEventListener('click', arguments.callee); // Olay dinleyicisini tekrar ata
     } else if (currentQuestionIndex === questionCount - 1) {
         questions[currentQuestionIndex].style.display = 'block';
         submitButton.style.display = 'block'; // Son soruda "Ajanları Öner" butonunu göster
@@ -154,16 +156,15 @@ function restartQuiz() {
     currentQuestionIndex = 0;
     questions.forEach(question => {
         question.style.display = 'none';
+        // Önceki "Sonraki" butonlarını temizle
         const existingNextButton = question.querySelector('button:not([type="submit"])');
         if (existingNextButton) {
             existingNextButton.remove();
         }
     });
     questions[0].style.display = 'block';
-    const initialNextButton = document.createElement('button');
-    initialNextButton.textContent = 'Sonraki';
-    questions[0].appendChild(initialNextButton);
-    initialNextButton.addEventListener('click', () => {
+    nextButton = createNextButton(); // Yeni "Sonraki" butonunu oluştur
+    nextButton.addEventListener('click', () => {
         let currentQuestion = questions[currentQuestionIndex];
         let selectedAnswer = currentQuestion.querySelector('input:checked');
 
@@ -177,10 +178,8 @@ function restartQuiz() {
 
         if (currentQuestionIndex < questionCount - 1) {
             questions[currentQuestionIndex].style.display = 'block';
-            const newNextButton = document.createElement('button');
-            newNextButton.textContent = 'Sonraki';
-            questions[currentQuestionIndex].appendChild(newNextButton);
-            nextButton = newNextButton;
+            nextButton = createNextButton();
+            nextButton.addEventListener('click', arguments.callee);
         } else if (currentQuestionIndex === questionCount - 1) {
             questions[currentQuestionIndex].style.display = 'block';
             submitButton.style.display = 'block';
