@@ -1,71 +1,11 @@
 // Ajan listesi ve özellikleri
 const agents = [
-    {
-        name: "Jett",
-        role: "Duelist",
-        image: "images/jett.jpg",
-        scores: {
-            aggressive: 3,
-            stealth: 1,
-            teamplay: 1,
-            utility: 2
-        }
-    },
-    {
-        name: "Omen",
-        role: "Controller",
-        image: "images/omen.jpg",
-        scores: {
-            aggressive: 1,
-            stealth: 3,
-            teamplay: 2,
-            utility: 2
-        }
-    },
-    {
-        name: "Sova",
-        role: "Initiator",
-        image: "images/sova.jpg",
-        scores: {
-            aggressive: 2,
-            stealth: 2,
-            teamplay: 3,
-            utility: 3
-        }
-    },
-    {
-        name: "Sage",
-        role: "Sentinel",
-        image: "images/sage.jpg",
-        scores: {
-            aggressive: 1,
-            stealth: 1,
-            teamplay: 3,
-            utility: 2
-        }
-    },
-    {
-        name: "Reyna",
-        role: "Duelist",
-        image: "images/reyna.jpg",
-        scores: {
-            aggressive: 3,
-            stealth: 2,
-            teamplay: 1,
-            utility: 1
-        }
-    },
-    {
-        name: "Killjoy",
-        role: "Sentinel",
-        image: "images/killjoy.jpg",
-        scores: {
-            aggressive: 2,
-            stealth: 1,
-            teamplay: 2,
-            utility: 3
-        }
-    }
+    { name: "Jett", role: "Duelist", image: "images/jett.jpg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
+    { name: "Omen", role: "Controller", image: "images/omen.jpg", scores: { aggressive: 1, stealth: 3, teamplay: 2, utility: 2 } },
+    { name: "Sova", role: "Initiator", image: "images/sova.jpg", scores: { aggressive: 2, stealth: 2, teamplay: 3, utility: 3 } },
+    { name: "Sage", role: "Sentinel", image: "images/sage.jpg", scores: { aggressive: 1, stealth: 1, teamplay: 3, utility: 2 } },
+    { name: "Reyna", role: "Duelist", image: "images/reyna.jpg", scores: { aggressive: 3, stealth: 2, teamplay: 1, utility: 1 } },
+    { name: "Killjoy", role: "Sentinel", image: "images/killjoy.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } }
 ];
 
 // Her sorunun score kategori karşılığı
@@ -84,22 +24,19 @@ const restartButton = document.querySelector('#result button');
 
 let currentQuestionIndex = 0;
 const questionCount = questions.length;
-let nextButton; // Tanımı yukarı taşıdık
+let nextButton;
 
-// Başlangıçta sadece ilk soruyu göster
-questions[0].style.display = 'block';
-
-// İlk "Sonraki" butonunu oluştur ve ilk sorunun altına ekle
+// "Sonraki" butonu oluşturma fonksiyonu
 function createNextButton() {
     const btn = document.createElement('button');
     btn.textContent = 'Sonraki';
     questions[currentQuestionIndex].appendChild(btn);
+    btn.addEventListener('click', handleNextButtonClick);
     return btn;
 }
 
-nextButton = createNextButton();
-
-nextButton.addEventListener('click', () => {
+// "Sonraki" butonuna tıklama olayını yöneten fonksiyon
+function handleNextButtonClick() {
     const currentQuestion = questions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.querySelector('input:checked');
 
@@ -113,14 +50,19 @@ nextButton.addEventListener('click', () => {
 
     if (currentQuestionIndex < questionCount - 1) {
         questions[currentQuestionIndex].style.display = 'block';
-        nextButton = createNextButton(); // Yeni butonu oluştur
-        nextButton.addEventListener('click', arguments.callee); // Olay dinleyicisini tekrar ata
+        nextButton = createNextButton(); // Yeni butonu oluştur ve dinleyiciyi ata
     } else if (currentQuestionIndex === questionCount - 1) {
         questions[currentQuestionIndex].style.display = 'block';
         submitButton.style.display = 'block'; // Son soruda "Ajanları Öner" butonunu göster
-        nextButton.remove(); // Önceki "Sonraki" butonunu kaldır
+        if (nextButton) {
+            nextButton.remove(); // Önceki "Sonraki" butonunu kaldır
+        }
     }
-});
+}
+
+// Başlangıçta sadece ilk soruyu göster ve "Sonraki" butonunu ekle
+questions[0].style.display = 'block';
+nextButton = createNextButton();
 
 quizForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -156,7 +98,6 @@ function restartQuiz() {
     currentQuestionIndex = 0;
     questions.forEach(question => {
         question.style.display = 'none';
-        // Önceki "Sonraki" butonlarını temizle
         const existingNextButton = question.querySelector('button:not([type="submit"])');
         if (existingNextButton) {
             existingNextButton.remove();
@@ -164,31 +105,9 @@ function restartQuiz() {
     });
     questions[0].style.display = 'block';
     nextButton = createNextButton(); // Yeni "Sonraki" butonunu oluştur
-    nextButton.addEventListener('click', () => {
-        let currentQuestion = questions[currentQuestionIndex];
-        let selectedAnswer = currentQuestion.querySelector('input:checked');
-
-        if (!selectedAnswer) {
-            alert('Lütfen bir cevap seçin.');
-            return;
-        }
-
-        currentQuestion.style.display = 'none';
-        currentQuestionIndex++;
-
-        if (currentQuestionIndex < questionCount - 1) {
-            questions[currentQuestionIndex].style.display = 'block';
-            nextButton = createNextButton();
-            nextButton.addEventListener('click', arguments.callee);
-        } else if (currentQuestionIndex === questionCount - 1) {
-            questions[currentQuestionIndex].style.display = 'block';
-            submitButton.style.display = 'block';
-            nextButton.remove();
-        }
-    });
+    submitButton.style.display = 'none';
     resultDiv.classList.add('hidden');
     quizForm.style.display = 'block';
-    submitButton.style.display = 'none';
 }
 
 // Başlangıçta "Ajanları Öner" butonunu gizle
