@@ -1,23 +1,55 @@
 const questions = [
     {
         question: "Oyun tarzınız genellikle nasıl?",
-        options: ["Saklanarak ve pusu kurarak", "Agresif ve öne atılarak", "Takımı destekleyerek"],
+        options: ["Saklanarak ve pusu kurarak, ani baskınlarla", "Agresif ve sürekli çatışma arayarak", "Takımı destekleyerek, alan kontrolü sağlayarak", "Bilgi toplayarak ve takımın stratejisini yönlendirerek"],
         weights: [
-            { sage: 2, cypher: 3, killjoy: 3, omen: 1, viper: 1, brimstone: 1, sova: 1, breach: 1, phoenix: 1, reyna: 0, jett: 0, raze: 0, skye: 2, yoru: 1, astra: 2, kayeo: 1, chamber: 2, neon: 0, fade: 2, harbor: 2 },
-            { sage: 0, cypher: 0, killjoy: 0, omen: 2, viper: 2, brimstone: 2, sova: 2, breach: 3, phoenix: 3, reyna: 3, jett: 3, raze: 3, skye: 1, yoru: 3, astra: 1, kayeo: 3, chamber: 1, neon: 3, fade: 1, harbor: 1 },
-            { sage: 3, cypher: 1, killjoy: 1, omen: 3, viper: 3, brimstone: 3, sova: 3, breach: 2, phoenix: 2, reyna: 1, jett: 1, raze: 1, skye: 3, yoru: 2, astra: 3, kayeo: 2, chamber: 1, neon: 1, fade: 3, harbor: 3 }
+            { brimstone: 1, viper: 1, omen: 2, killjoy: 3, cypher: 3, sova: 1, sage: 2, phoenix: 2, jett: 2, reyna: 2, raze: 2, breach: 2, skye: 2, yoru: 3, astra: 1, kayeo: 1, chamber: 3, neon: 1, fade: 2, harbor: 1 }, // Saklanarak/Pusu
+            { brimstone: 2, viper: 2, omen: 2, killjoy: 0, cypher: 0, sova: 2, sage: 1, phoenix: 3, jett: 3, reyna: 3, raze: 3, breach: 3, skye: 2, yoru: 2, astra: 1, kayeo: 3, chamber: 1, neon: 3, fade: 1, harbor: 1 }, // Agresif
+            { brimstone: 3, viper: 3, omen: 3, killjoy: 3, cypher: 2, sova: 2, sage: 3, phoenix: 1, jett: 1, reyna: 1, raze: 1, breach: 2, skye: 3, yoru: 1, astra: 3, kayeo: 2, chamber: 1, neon: 1, fade: 3, harbor: 3 }, // Destek/Kontrol
+            { brimstone: 2, viper: 2, omen: 3, killjoy: 2, cypher: 3, sova: 3, sage: 2, phoenix: 1, jett: 1, reyna: 1, raze: 1, breach: 2, skye: 3, yoru: 2, astra: 3, kayeo: 2, chamber: 2, neon: 1, fade: 3, harbor: 3 }  // Bilgi/Yönlendirme
         ]
     },
     {
-        question: "Çatışmalarda neye daha çok önem verirsiniz?",
-        options: ["Doğrudan çatışmaya girmek (düello)", "Alan kontrolü ve savunma", "Takım arkadaşlarına yardımcı olmak ve bilgi toplamak"],
+        question: "Çatışmalarda önceliğiniz ne olur?",
+        options: ["Doğrudan rakiple düelloya girmek ve onları alt etmek", "Güvenli bir mesafeden hasar vermek ve alanı kontrol etmek", "Takım arkadaşlarımı korumak ve onlara can/destek sağlamak", "Rakip hakkında bilgi toplamak ve takımın ilerlemesine yardımcı olmak"],
         weights: [
-            { sage: 0, cypher: 0, killjoy: 0, omen: 2, viper: 2, brimstone: 2, sova: 2, breach: 3, phoenix: 3, reyna: 3, jett: 3, raze: 3, skye: 1, yoru: 3, astra: 1, kayeo: 3, chamber: 3, neon: 3, fade: 1, harbor: 1 },
-            { sage: 3, cypher: 3, killjoy: 3, omen: 1, viper: 3, brimstone: 3, sova: 1, breach: 1, phoenix: 0, reyna: 0, jett: 0, raze: 0, skye: 2, yoru: 1, astra: 3, kayeo: 1, chamber: 3, neon: 0, fade: 3, harbor: 3 },
-            { sage: 3, cypher: 2, killjoy: 2, omen: 3, viper: 1, brimstone: 1, sova: 3, breach: 2, phoenix: 2, reyna: 1, jett: 1, raze: 1, skye: 3, yoru: 2, astra: 3, kayeo: 2, chamber: 1, neon: 1, fade: 3, harbor: 3 }
+            { brimstone: 2, viper: 2, omen: 2, killjoy: 0, cypher: 0, sova: 1, sage: 1, phoenix: 3, jett: 3, reyna: 3, raze: 3, breach: 3, skye: 2, yoru: 3, astra: 1, kayeo: 3, chamber: 2, neon: 3, fade: 1, harbor: 1 }, // Düello
+            { brimstone: 3, viper: 3, omen: 3, killjoy: 3, cypher: 2, sova: 2, sage: 2, phoenix: 2, jett: 2, reyna: 2, raze: 2, breach: 2, skye: 2, yoru: 2, astra: 3, kayeo: 2, chamber: 3, neon: 2, fade: 3, harbor: 3 }, // Alan Kontrol/Hasar
+            { brimstone: 1, viper: 1, omen: 1, killjoy: 2, cypher: 1, sova: 2, sage: 3, phoenix: 1, jett: 1, reyna: 1, raze: 1, breach: 1, skye: 3, yoru: 1, astra: 2, kayeo: 1, chamber: 1, neon: 1, fade: 2, harbor: 2 }, // Destek/Koruma
+            { brimstone: 2, viper: 2, omen: 3, killjoy: 3, cypher: 3, sova: 3, sage: 2, phoenix: 1, jett: 1, reyna: 1, raze: 1, breach: 2, skye: 3, yoru: 2, astra: 3, kayeo: 2, chamber: 2, neon: 1, fade: 3, harbor: 3 }  // Bilgi Toplama
         ]
     },
-    // ... Diğer sorular buraya eklenecek
+    {
+        question: "Haritalarda nasıl bir rol üstlenmeyi tercih edersiniz?",
+        options: ["Ön saflarda yer alıp ilk giren olmak", "Orta alanda kontrolü sağlamak ve rotasyonları yönetmek", "Arka hatta kalıp savunmayı güçlendirmek ve takım arkadaşlarımı desteklemek", "Sürpriz saldırılar yapmak ve rakip hatlarını yarmak"],
+        weights: [
+            { brimstone: 2, viper: 2, omen: 2, killjoy: 0, cypher: 0, sova: 2, sage: 1, phoenix: 3, jett: 3, reyna: 3, raze: 3, breach: 3, skye: 2, yoru: 2, astra: 1, kayeo: 3, chamber: 1, neon: 3, fade: 1, harbor: 1 }, // Ön Saf
+            { brimstone: 3, viper: 3, omen: 3, killjoy: 1, cypher: 2, sova: 3, sage: 2, phoenix: 2, jett: 2, reyna: 2, raze: 2, breach: 2, skye: 3, yoru: 2, astra: 3, kayeo: 2, chamber: 2, neon: 2, fade: 3, harbor: 3 }, // Orta Alan Kontrolü
+            { brimstone: 3, viper: 3, omen: 2, killjoy: 3, cypher: 3, sova: 2, sage: 3, phoenix: 1, jett: 1, reyna: 1, raze: 1, breach: 1, skye: 2, yoru: 1, astra: 3, kayeo: 3, chamber: 3, neon: 1, fade: 2, harbor: 3 }, // Arka Hat/Savunma
+            { brimstone: 1, viper: 1, omen: 3, killjoy: 0, cypher: 0, sova: 2, sage: 1, phoenix: 2, jett: 3, reyna: 2, raze: 3, breach: 2, skye: 2, yoru: 3, astra: 1, kayeo: 1, chamber: 2, neon: 3, fade: 3, harbor: 1 }  // Sürpriz Saldırı/Yarma
+        ]
+    },
+    {
+        question: "Yeteneklerinizi kullanırken önceliğiniz nedir?",
+        options: ["Rakip öldürmek veya onlara doğrudan hasar vermek", "Alanları kontrol etmek, geçişleri engellemek veya güvenli alanlar oluşturmak", "Takım arkadaşlarımı iyileştirmek, güçlendirmek veya görüş sağlamak", "Rakip konumları hakkında bilgi toplamak ve onları zayıflatmak"],
+        weights: [
+            { brimstone: 2, viper: 2, omen: 2, killjoy: 0, cypher: 0, sova: 0, sage: 0, phoenix: 3, jett: 2, reyna: 3, raze: 3, breach: 3, skye: 1, yoru: 2, astra: 1, kayeo: 3, chamber: 1, neon: 3, fade: 2, harbor: 1 }, // Hasar/Öldürme
+            { brimstone: 3, viper: 3, omen: 3, killjoy: 3, cypher: 3, sova: 2, sage: 2, phoenix: 1, jett: 1, reyna: 1, raze: 1, breach: 2, skye: 2, yoru: 2, astra: 3, kayeo: 2, chamber: 3, neon: 1, fade: 3, harbor: 3 }, // Alan Kontrol/Güvenlik
+            { brimstone: 1, viper: 1, omen: 1, killjoy: 2, cypher: 2, sova: 3, sage: 3, phoenix: 2, jett: 1, reyna: 1, raze: 1, breach: 2, skye: 3, yoru: 1, astra: 2, kayeo: 2, chamber: 1, neon: 1, fade: 3, harbor: 3 }, // Destek/Görüş
+            { brimstone: 2, viper: 2, omen: 3, killjoy: 3, cypher: 3, sova: 3, sage: 2, phoenix: 1, jett: 1, reyna: 1, raze: 1, breach: 2, skye: 3, yoru: 2, astra: 3, kayeo: 2, chamber: 2, neon: 1, fade: 3, harbor: 3 }  // Bilgi/Zayıflatma
+        ]
+    },
+    {
+        question: "Hangi tür silahlarda daha yeteneklisiniz?",
+        options: ["Keskin nişancı tüfekleri (Sniper)", "Piyade tüfekleri (Rifle)", "Hafif makineli tüfekler (SMG) ve pompalı tüfekler (Shotgun)", "Tabancalar (Pistol)"],
+        weights: [
+            { brimstone: 1, viper: 1, omen: 1, killjoy: 3, cypher: 3, sova: 3, sage: 3, phoenix: 1, jett: 3, reyna: 1, raze: 1, breach: 1, skye: 2, yoru: 2, astra: 2, kayeo: 2, chamber: 3, neon: 1, fade: 2, harbor: 2 }, // Sniper (Jett, Chamber, Sova, Cypher, Killjoy, Sage)
+            { brimstone: 3, viper: 3, omen: 3, killjoy: 2, cypher: 2, sova: 2, sage: 2, phoenix: 3, jett: 2, reyna: 3, raze: 3, breach: 3, skye: 3, yoru: 3, astra: 3, kayeo: 3, chamber: 2, neon: 3, fade: 3, harbor: 3 }, // Rifle (Çoğu Ajan)
+            { brimstone: 2, viper: 2, omen: 2, killjoy: 1, cypher: 1, sova: 1, sage: 1, phoenix: 3, jett: 3, reyna: 3, raze: 3, breach: 3, skye: 3, yoru: 3, astra: 2, kayeo: 2, chamber: 1, neon: 3, fade: 2, harbor: 2 }, // SMG/Shotgun (Hızlı ve Yakın Mesafe)
+            { brimstone: 2, viper: 2, omen: 2, killjoy: 2, cypher: 2, sova: 2, sage: 2, phoenix: 2, jett: 2, reyna: 2, raze: 2, breach: 2, skye: 2, yoru: 2, astra: 2, kayeo: 2, chamber: 2, neon: 2, fade: 2, harbor: 2 }  // Pistol (Herkes için geçerli)
+        ]
+    }
+    // İstediğiniz kadar soru ekleyebilirsiniz...
 ];
 
 const agents = [
@@ -32,7 +64,6 @@ agents.forEach(agent => {
 });
 
 const questionContainer = document.getElementById('question-container');
-const nextButton = document.getElementById('next-button');
 const resultContainer = document.getElementById('result-container');
 const topAgentsContainer = document.getElementById('top-agents');
 const restartButton = document.getElementById('restart-button');
@@ -77,7 +108,6 @@ function selectAnswer(selectedIndex) {
 
 function showResults() {
     questionContainer.style.display = 'none';
-    nextButton.style.display = 'none';
     resultContainer.style.display = 'block';
 
     const sortedAgents = Object.entries(agentScores)
@@ -104,40 +134,9 @@ function restartQuiz() {
     });
     resultContainer.style.display = 'none';
     questionContainer.style.display = 'block';
-    nextButton.style.display = 'block';
     showQuestion();
-}
-
-nextButton.addEventListener('click', () => {
-    const selectedOption = questionContainer.querySelector('.options button.selected');
-    if (selectedOption) {
-        // Burada seçilen cevabı işle
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            showQuestion();
-        } else {
-            showResults();
-        }
-    } else {
-        alert("Lütfen bir seçenek seçin.");
-    }
-});
-
-// Basit bir "ileri" butonu yerine, her seçeneğe tıklanınca bir sonraki soruya geçiş mantığı eklendi
-function setupQuestionNavigation() {
-    const optionsContainers = document.querySelectorAll('#question-container .options');
-    optionsContainers.forEach(container => {
-        const buttons = container.querySelectorAll('button');
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                selectAnswer(index);
-            });
-        });
-    });
 }
 
 restartButton.addEventListener('click', restartQuiz);
 
 showQuestion();
-// İlk soruyu yükle
-setupQuestionNavigation(); // Başlangıçta olay dinleyicilerini ayarla
