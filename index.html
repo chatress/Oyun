@@ -2,18 +2,24 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valorant Ajan Seçimi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Valorant Ajan Önerici</h1>
+        <div class="progress-container">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        
         <form id="quizForm">
             <div class="question">
                 <p>1. Oyun stiliniz nasıl?</p>
                 <label><input type="radio" name="q1" value="agresif"> Agresif</label>
                 <label><input type="radio" name="q1" value="defansif"> Defansif</label>
                 <label><input type="radio" name="q1" value="destek"> Takım destekli</label>
+                <button type="button" class="next-btn">Sonraki</button>
             </div>
 
             <div class="question" style="display: none;">
@@ -21,6 +27,7 @@
                 <label><input type="radio" name="q2" value="yetenek"> Yetenek</label>
                 <label><input type="radio" name="q2" value="silah"> Silah</label>
                 <label><input type="radio" name="q2" value="denge"> Denge</label>
+                <button type="button" class="next-btn">Sonraki</button>
             </div>
 
             <div class="question" style="display: none;">
@@ -28,9 +35,8 @@
                 <label><input type="radio" name="q3" value="kontrol"> Harita kontrolü</label>
                 <label><input type="radio" name="q3" value="giris"> Giriş yapmayı severim</label>
                 <label><input type="radio" name="q3" value="info"> Bilgi toplamak</label>
+                <button type="submit" class="submit-btn">Ajanları Öner</button>
             </div>
-
-            <button type="submit" style="display: none;">Ajanları Öner</button>
         </form>
 
         <div id="result" class="hidden">
