@@ -1,11 +1,11 @@
 // Ajan listesi ve özellikleri
 const agents = [
-    { name: "Jett", role: "Duelist", image: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltceaa6cf20d328bd5/5eb26f54402b8b4d13a56656/agent-jett.png", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
-    { name: "Omen", role: "Controller", image: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt63486e6f7a5d0e5d/5eb26f7b4a28a966a7dbef76/agent-omen.png", scores: { aggressive: 1, stealth: 3, teamplay: 2, utility: 3 } },
-    { name: "Sova", role: "Initiator", image: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf9fc34106a23479a/5eb26f7bedf2cf6b6b4f6f3d/agent-sova.png", scores: { aggressive: 2, stealth: 2, teamplay: 3, utility: 3 } },
-    { name: "Sage", role: "Sentinel", image: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8a627ec10b57f4f2/5eb26f7b95b72c6d9835cb6b/agent-sage.png", scores: { aggressive: 1, stealth: 1, teamplay: 3, utility: 2 } },
-    { name: "Reyna", role: "Duelist", image: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt6577b1f58530e6b2/5eb26f7b0c25104b27c36e59/agent-reyna.png", scores: { aggressive: 3, stealth: 2, teamplay: 1, utility: 1 } },
-    { name: "Killjoy", role: "Sentinel", image: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt53405c26141cec00/5f2207393163d654b7d9e0bd/agent-killjoy.png", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } }
+    { name: "Jett", role: "Duelist", image: "https://chatress.github.io/Oyun/images/jett.jpg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
+    { name: "Omen", role: "Controller", image: "https://chatress.github.io/Oyun/images/omen.jpg", scores: { aggressive: 1, stealth: 3, teamplay: 2, utility: 3 } },
+    { name: "Sova", role: "Initiator", image: "https://chatress.github.io/Oyun/images/sova.jpg", scores: { aggressive: 2, stealth: 2, teamplay: 3, utility: 3 } },
+    { name: "Sage", role: "Sentinel", image: "https://chatress.github.io/Oyun/images/sage.jpg", scores: { aggressive: 1, stealth: 1, teamplay: 3, utility: 2 } },
+    { name: "Reyna", role: "Duelist", image: "https://chatress.github.io/Oyun/images/reyna.jpg", scores: { aggressive: 3, stealth: 2, teamplay: 1, utility: 1 } },
+    { name: "Killjoy", role: "Sentinel", image: "https://chatress.github.io/Oyun/images/killjoy.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } }
 ];
 
 // Soru eşleştirmeleri
