@@ -1,5 +1,4 @@
-# Oyun Uygulamaları
-Valorant Ajan Seçme Yardımcısı
+# Valorant Ajan Seçme Yardımcısı
 
 Burada Valorant ajan seçme uygulaması vardır.
 Çeşitli sorular ile birlikte hangi ajanın oyuncuya uygun olduğunu belirlemeye yardımcı olur.
