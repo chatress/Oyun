@@ -1,11 +1,11 @@
 // Ajan listesi ve özellikleri
 const agents = [
-    { name: "Jett", role: "Duelist", image: "https://chatress.github.io/Oyun/images/jett.jpg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
-    { name: "Omen", role: "Controller", image: "https://chatress.github.io/Oyun/images/omen.jpg", scores: { aggressive: 1, stealth: 3, teamplay: 2, utility: 3 } },
-    { name: "Sova", role: "Initiator", image: "https://chatress.github.io/Oyun/images/sova.jpg", scores: { aggressive: 2, stealth: 2, teamplay: 3, utility: 3 } },
-    { name: "Sage", role: "Sentinel", image: "https://chatress.github.io/Oyun/images/sage.jpg", scores: { aggressive: 1, stealth: 1, teamplay: 3, utility: 2 } },
-    { name: "Reyna", role: "Duelist", image: "https://chatress.github.io/Oyun/images/reyna.jpg", scores: { aggressive: 3, stealth: 2, teamplay: 1, utility: 1 } },
-    { name: "Killjoy", role: "Sentinel", image: "https://chatress.github.io/Oyun/images/killjoy.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } }
+    { name: "Jett", role: "Duelist", image: "images/jett.jpg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
+    { name: "Omen", role: "Controller", image: "images/omen.jpg", scores: { aggressive: 1, stealth: 3, teamplay: 2, utility: 3 } },
+    { name: "Sova", role: "Initiator", image: "images/sova.jpg", scores: { aggressive: 2, stealth: 2, teamplay: 3, utility: 3 } },
+    { name: "Sage", role: "Sentinel", image: "images/sage.jpg", scores: { aggressive: 1, stealth: 1, teamplay: 3, utility: 2 } },
+    { name: "Reyna", role: "Duelist", image: "images/reyna.jpg", scores: { aggressive: 3, stealth: 2, teamplay: 1, utility: 1 } },
+    { name: "Killjoy", role: "Sentinel", image: "images/killjoy.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } }
 ];
 
 // Soru eşleştirmeleri
