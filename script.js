@@ -5,7 +5,28 @@ const agents = [
     { name: "Sova", role: "Initiator", image: "images/sova.jpg", scores: { aggressive: 2, stealth: 2, teamplay: 3, utility: 3 } },
     { name: "Sage", role: "Sentinel", image: "images/sage.jpg", scores: { aggressive: 1, stealth: 1, teamplay: 3, utility: 2 } },
     { name: "Reyna", role: "Duelist", image: "images/reyna.jpg", scores: { aggressive: 3, stealth: 2, teamplay: 1, utility: 1 } },
-    { name: "Killjoy", role: "Sentinel", image: "images/killjoy.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } }
+    { name: "Killjoy", role: "Sentinel", image: "images/killjoy.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Brimstone", role: "Controller", image: "images/brimstone.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Phoenix", role: "Duelist", image: "images/phoenix.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Viper", role: "Control", image: "images/viper.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Cypher", role: "Sentinel", image: "images/cypher.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Breach", role: "Initiator", image: "images/breach.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Raze", role: "Duelist", image: "images/raze.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Skye", role: "Initiator", image: "images/skye.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Yoru", role: "Duelist", image: "images/yoru.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Astra", role: "Control", image: "images/astra.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Kay/O", role: "Initiator", image: "images/kayo.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Chamber", role: "Sentinel", image: "images/chamber.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Neon", role: "Duelist", image: "images/neon.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Fade", role: "Initiator", image: "images/fade.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Harbor", role: "Control", image: "images/harbor.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Gekko", role: "Initiator", image: "images/gekko.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Deadlock", role: "Sentinel", image: "images/deadlock.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Iso", role: "Duelist", image: "images/iso.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Clove", role: "Control", image: "images/clove.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Vyse", role: "Sentinel", image: "images/vyse.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Tejo", role: "Initiator", image: "images/tejo.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } },
+    { name: "Waylay", role: "Duelist", image: "images/waylay.jpg", scores: { aggressive: 2, stealth: 1, teamplay: 2, utility: 3 } }
 ];
 
 // Soru eşleştirmeleri
