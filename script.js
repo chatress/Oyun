@@ -29,12 +29,6 @@ const agents = [
     { name: "Waylay", role: "Duelist", image: "images/waylay.jpeg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 1 } }
 ];
 
-// Ajan listesi (tüm ajanlarınız burada olacak)
-const agents = [
-    { name: "Jett", role: "Duelist", image: "images/jett.jpg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
-    // Diğer tüm ajanlar...
-];
-
 // Soru eşleştirmeleri (YENİ SORULARA GÖRE GÜNCELLENDİ)
 const questionMapping = {
     "q1": { "agresif": "aggressive", "defansif": "stealth", "destek": "teamplay" },
