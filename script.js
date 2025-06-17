@@ -34,9 +34,9 @@ const questionMapping = {
     "q1": { "agresif": "aggressive", "defansif": "stealth", "destek": "teamplay" },
     "q2": { "yetenek": "utility", "silah": "aggressive", "denge": "teamplay" },
     "q3": { "kontrol": "teamplay", "giris": "aggressive", "info": "utility" },
-    "q4": { "kontrol": "utility", "giris": "aggressive", "info": "teamplay" }, // Yeni soru
-    "q5": { "kontrol": "stealth", "giris": "aggressive", "info": "teamplay" }, // Yeni soru
-    "q6": { "kontrol": "stealth", "giris": "aggressive", "info": "utility" }   // Yeni soru
+    "q4": { "agresif": "aggressive", "defansif": "stealth", "info": "teamplay" }, // Yeni soru
+    "q5": { "kontrol": "stealth", "giris": "aggressive", "info": "utility" }, // Yeni soru
+    "q6": { "defansif": "stealth", "giris": "aggressive", "info": "utility" }   // Yeni soru
 };
 
 // DOM Elementleri
