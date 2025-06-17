@@ -29,15 +29,20 @@ const agents = [
     { name: "Waylay", role: "Duelist", image: "images/waylay.jpeg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 1 } }
 ];
 
-// Soru eşleştirmeleri
+// Ajan listesi (tüm ajanlarınız burada olacak)
+const agents = [
+    { name: "Jett", role: "Duelist", image: "images/jett.jpg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
+    // Diğer tüm ajanlar...
+];
+
+// Soru eşleştirmeleri (YENİ SORULARA GÖRE GÜNCELLENDİ)
 const questionMapping = {
     "q1": { "agresif": "aggressive", "defansif": "stealth", "destek": "teamplay" },
     "q2": { "yetenek": "utility", "silah": "aggressive", "denge": "teamplay" },
-    "q3": { "kontrol": "teamplay", "giris": "aggressive", "info": "utility" }
-    "q4": { "giris": "aggressive", "duman": "stealth", "destek": "teamplay" }
-    "q5": { "pusarim": "teamplay", "yuzlesirim": "aggressive", "kacarim": "utility" }
-    "q6": { "operator": "teamplay", "vandal": "aggressive", "phantom": "utility" }
-
+    "q3": { "kontrol": "teamplay", "giris": "aggressive", "info": "utility" },
+    "q4": { "kontrol": "utility", "giris": "aggressive", "info": "teamplay" }, // Yeni soru
+    "q5": { "kontrol": "stealth", "giris": "aggressive", "info": "teamplay" }, // Yeni soru
+    "q6": { "kontrol": "stealth", "giris": "aggressive", "info": "utility" }   // Yeni soru
 };
 
 // DOM Elementleri
@@ -92,7 +97,7 @@ function scoreAgents(answers) {
 function showResults() {
     const answers = {};
     
-    // Tüm cevapları topla
+    // Tüm cevapları topla (6 soruya göre güncellendi)
     questions.forEach((question, index) => {
         const selected = question.querySelector(`input[name="q${index + 1}"]:checked`);
         if (selected) {
@@ -110,9 +115,10 @@ function showResults() {
         const card = document.createElement('div');
         card.className = "agent-card";
         card.innerHTML = `
-            <img src="${agent.image}" alt="${agent.name}">
+            <img src="${agent.image}" alt="${agent.name}" onerror="this.src='images/default.jpg'">
             <h3>${agent.name}</h3>
             <p>${agent.role}</p>
+            <small>${agent.score} Puan</small>
         `;
         agentResultsDiv.appendChild(card);
     });
