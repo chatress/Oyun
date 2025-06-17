@@ -1,7 +1,6 @@
 # Valorant Ajan Seçme Yardımcısı
 
-Burada Valorant ajan seçme uygulaması vardır.
-Çeşitli sorular ile birlikte hangi ajanın oyuncuya uygun olduğunu belirlemeye yardımcı olur.
-Sonçularda resimler vardır.
-Şimdilik Türkçe dil seçeneği mevcuttur.
-6 adet ajan vardır tamamı yoktur.
+Valorant ajan seçme yardımcı uygulaması. İçerisinde iilerleme çubuğu vardır.
+Çeşitli sorular ile hangi ajanın size daha uygun olduğunu beliirlemenize yardımcı olur.
+Sonçularda ajan resimleri, isimleri, rolleri ve puanları vardır. Sadece Türkçe dil seçeneği mevcuttur.
+Uygulamada bütün ajanlar mevcuttur. En yararlı 3 öneri sonuç olarak gösterilmektedir.
