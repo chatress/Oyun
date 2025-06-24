@@ -5,30 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valorant Ajan Seçimi</title>
     <link rel="stylesheet" href="style.css">
-    <style>
+  <style>
         /* Dil değiştirme düğmeleri için stil */
         .language-switcher {
             text-align: right; /* Düğmeleri sağa yaslar */
             margin-bottom: 20px;
+            /* Flexbox kullanarak düğmeleri yan yana ve eşit aralıklı yap */
+            display: flex;
+            justify-content: flex-end; /* Sağ tarafa yasla */
+            gap: 10px; /* Düğmeler arasına boşluk bırak */
         }
         .language-switcher button {
-            margin-left: 10px; /* Düğmeler arasına boşluk bırakır */
             padding: 8px 15px;
             cursor: pointer;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            /* style.css'teki genel düğme stillerini taklit edelim */
-            background-color: #007bff; /* Mavi tonu */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
+            /* Mevcut style.css'deki buton renklerini ve stillerini taklit edelim */
+            background-color: #007bff; /* Mavi tonu (kendi style.css'inizdeki renge göre ayarlayın) */
+            color: white; /* Yazı rengi */
+            border: none; /* Kenarlık yok */
+            border-radius: 5px; /* Köşe yuvarlaklığı */
+            font-size: 1em; /* Yazı boyutu */
+            transition: background-color 0.3s ease; /* Hover efekti için geçiş */
         }
         .language-switcher button:hover {
-            background-color: #0056b3; /* Koyu mavi */
+            background-color: #0056b3; /* Koyu mavi (hover rengi) */
         }
     </style>
 </head>
