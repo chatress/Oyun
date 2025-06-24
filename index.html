@@ -6,14 +6,19 @@
     <title>Valorant Ajan Seçimi</title>
     <link rel="stylesheet" href="style.css">
     <!-- Header kısmına ekleyin -->
-<div class="language-switcher">
+</head>
+<body>
+    <div class="language-switcher">
+        <button onclick="changeLanguage('tr')">Türkçe</button>
+        <button onclick="changeLanguage('en')">English</button>
+    </div>
     <button onclick="changeLanguage('tr')">Türkçe</button>
     <button onclick="changeLanguage('en')">English</button>
 </div>
 </head>
 <body>
     <div class="container">
-        <h1>Valorant Ajan Önerici</h1>
+        <h1 id="title">Valorant Ajan Önerici</h1>
         <div class="progress-container">
             <div id="progressBar" class="progress-bar"></div>
         </div>
