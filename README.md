@@ -12,3 +12,5 @@ Valorant agent selection assistant application. It has a progress bar.
 It helps you determine which agent is more suitable for you with various questions.
 The results include agent pictures, names, roles and scores. Only Turkish language option is available.
 All agents are available in the application. The 3 most useful suggestions are shown as results.
+
+Not: Çizim bana aittir. Drawing is mine.
