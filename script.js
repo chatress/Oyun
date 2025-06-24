@@ -1,3 +1,40 @@
+
+// Çeviri verisi
+const translations = {
+    tr: {
+        title: "Valorant Ajan Önerici",
+        startQuiz: "Teste Başla",
+        question1: "Nasıl bir oyun tarzın var?",
+        question2: "Takım çalışmasına yaklaşımın nedir?",
+        question3: "Sinsi mi yoksa doğrudan mı oynamayı tercih edersin?",
+        question4: "Yetenek kullanımı senin için ne kadar önemli?",
+        resultTitle: "Sana önerilen ajanlar:"
+    },
+    en: {
+        title: "Valorant Agent Recommender",
+        startQuiz: "Start Quiz",
+        question1: "What is your playstyle?",
+        question2: "How do you approach teamplay?",
+        question3: "Do you prefer stealth or direct combat?",
+        question4: "How important are abilities for you?",
+        resultTitle: "Recommended agents for you:"
+    }
+};
+
+let currentLang = 'tr';
+
+function changeLanguage(lang) {
+    currentLang = lang;
+    document.querySelector('h1').innerText = translations[lang].title;
+    document.getElementById('startButton').innerText = translations[lang].startQuiz;
+    document.getElementById('question1-label').innerText = translations[lang].question1;
+    document.getElementById('question2-label').innerText = translations[lang].question2;
+    document.getElementById('question3-label').innerText = translations[lang].question3;
+    document.getElementById('question4-label').innerText = translations[lang].question4;
+    document.getElementById('results-title').innerText = translations[lang].resultTitle;
+}
+
+
 // Ajan listesi ve özellikleri
 const agents = [
     { name: "Jett", role: "Duelist", image: "images/jett.jpeg", scores: { aggressive: 3, stealth: 1, teamplay: 1, utility: 2 } },
