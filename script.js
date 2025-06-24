@@ -1,23 +1,34 @@
-
 // Çeviri verisi
 const translations = {
     tr: {
         title: "Valorant Ajan Önerici",
         startQuiz: "Teste Başla",
-        question1: "Nasıl bir oyun tarzın var?",
-        question2: "Takım çalışmasına yaklaşımın nedir?",
-        question3: "Sinsi mi yoksa doğrudan mı oynamayı tercih edersin?",
-        question4: "Yetenek kullanımı senin için ne kadar önemli?",
-        resultTitle: "Sana önerilen ajanlar:"
+        question1: "1. Oyun stiliniz nasıl?",
+        question2: "2. Yetenek mi silah mı?",
+        question3: "3. Harita kontrolü mü giriş mi?",
+        question4: "4. Ekibinizde hangi rolü üstlenirsiniz?",
+        question5: "5. Oyun sonu (clutch) durumlarında nasıl davranırsınız?",
+        question6: "6. Hangi silahı sıklıkla kullanırsınız?",
+        resultTitle: "Sana önerilen ajanlar:",
+        restartQuiz: "Yeniden Dene",
+        nextButton: "Sonraki",
+        submitButton: "Ajanları Öner",
+        alertMessage: "Lütfen bir seçenek seçin!"
     },
     en: {
         title: "Valorant Agent Recommender",
         startQuiz: "Start Quiz",
-        question1: "What is your playstyle?",
-        question2: "How do you approach teamplay?",
-        question3: "Do you prefer stealth or direct combat?",
-        question4: "How important are abilities for you?",
-        resultTitle: "Recommended agents for you:"
+        question1: "1. What is your playstyle?",
+        question2: "2. Abilities or weapons?",
+        question3: "3. Map control or entry?",
+        question4: "4. What role do you take in your team?",
+        question5: "5. How do you act in clutch situations?",
+        question6: "6. Which weapon do you use frequently?",
+        resultTitle: "Recommended agents for you:",
+        restartQuiz: "Try Again",
+        nextButton: "Next",
+        submitButton: "Suggest Agents",
+        alertMessage: "Please select an option!"
     }
 };
 
@@ -25,13 +36,22 @@ let currentLang = 'tr';
 
 function changeLanguage(lang) {
     currentLang = lang;
-    document.querySelector('h1').innerText = translations[lang].title;
-    document.getElementById('startButton').innerText = translations[lang].startQuiz;
+    document.getElementById('title').innerText = translations[lang].title;
+    // document.getElementById('startButton').innerText = translations[lang].startQuiz; // Bu butona ihtiyacımız yok gibi görünüyor, quiz doğrudan başlıyor.
     document.getElementById('question1-label').innerText = translations[lang].question1;
     document.getElementById('question2-label').innerText = translations[lang].question2;
     document.getElementById('question3-label').innerText = translations[lang].question3;
     document.getElementById('question4-label').innerText = translations[lang].question4;
+    document.getElementById('question5-label').innerText = translations[lang].question5; // Yeni eklenen soru
+    document.getElementById('question6-label').innerText = translations[lang].question6; // Yeni eklenen soru
     document.getElementById('results-title').innerText = translations[lang].resultTitle;
+    document.getElementById('restartButton').innerText = translations[lang].restartQuiz;
+
+    // "Sonraki" ve "Ajanları Öner" düğmelerini güncelle
+    document.querySelectorAll('.next-btn').forEach(btn => {
+        btn.innerText = translations[lang].nextButton;
+    });
+    document.querySelector('.submit-btn').innerText = translations[lang].submitButton;
 }
 
 
@@ -71,9 +91,9 @@ const questionMapping = {
     "q1": { "agresif": "aggressive", "defansif": "stealth", "destek": "teamplay" },
     "q2": { "yetenek": "utility", "silah": "aggressive", "denge": "teamplay" },
     "q3": { "kontrol": "teamplay", "giris": "aggressive", "info": "utility" },
-    "q4": { "agresif": "aggressive", "defansif": "stealth", "info": "teamplay" }, // Yeni soru
-    "q5": { "kontrol": "stealth", "giris": "aggressive", "info": "utility" }, // Yeni soru
-    "q6": { "defansif": "stealth", "giris": "aggressive", "info": "utility" }   // Yeni soru
+    "q4": { "kontrol": "aggressive", "giris": "stealth", "info": "teamplay" },
+    "q5": { "kontrol": "stealth", "giris": "aggressive", "info": "utility" },
+    "q6": { "kontrol": "utility", "giris": "aggressive", "info": "teamplay" }
 };
 
 // DOM Elementleri
@@ -98,7 +118,7 @@ function goToNextQuestion() {
     const selectedAnswer = currentQuestion.querySelector('input:checked');
 
     if (!selectedAnswer) {
-        alert('Lütfen bir seçenek seçin!');
+        alert(translations[currentLang].alertMessage);
         return;
     }
 
@@ -168,6 +188,7 @@ function restartQuiz() {
     resultDiv.classList.add('hidden');
     quizForm.style.display = 'block';
     updateProgressBar();
+    changeLanguage(currentLang); // Yeniden başlatırken mevcut dili uygula
 }
 
 // Event Listeners
@@ -177,11 +198,18 @@ nextButtons.forEach(btn => {
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
+    const currentQuestion = questions[currentQuestionIndex];
+    const selectedAnswer = currentQuestion.querySelector('input:checked');
+    if (!selectedAnswer) {
+        alert(translations[currentLang].alertMessage);
+        return;
+    }
     showResults();
 });
 
-// Sayfa yüklendiğinde ilk soruyu göster
+// Sayfa yüklendiğinde ilk soruyu göster ve dili ayarla
 document.addEventListener('DOMContentLoaded', () => {
     questions[0].style.display = 'block';
     updateProgressBar();
+    changeLanguage('tr'); // Sayfa yüklendiğinde varsayılan olarak Türkçe başlat
 });
