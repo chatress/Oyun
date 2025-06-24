@@ -5,15 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valorant Ajan Seçimi</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Header kısmına ekleyin -->
+    <style> /* Dil değiştirme düğmeleri için basit CSS */
+        .language-switcher {
+            text-align: right; /* Düğmeleri sağa yaslar */
+            margin-bottom: 20px;
+        }
+        .language-switcher button {
+            margin-left: 10px; /* Düğmeler arasına boşluk bırakır */
+            padding: 8px 15px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+        .language-switcher button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
 </head>
 <body>
     <div class="language-switcher">
         <button onclick="changeLanguage('tr')">Türkçe</button>
         <button onclick="changeLanguage('en')">English</button>
-</div>
-</head>
-<body>
+    </div>
     <div class="container">
         <h1 id="title">Valorant Ajan Önerici</h1>
         <div class="progress-container">
@@ -22,7 +36,7 @@
         
         <form id="quizForm">
             <div class="question">
-                <p>1. Oyun stiliniz nasıl?</p>
+                <p id="question1-label">1. Oyun stiliniz nasıl?</p>
                 <label><input type="radio" name="q1" value="agresif"> Agresif</label>
                 <label><input type="radio" name="q1" value="defansif"> Defansif</label>
                 <label><input type="radio" name="q1" value="destek"> Takım destekli</label>
@@ -30,7 +44,7 @@
             </div>
 
             <div class="question" style="display: none;">
-                <p>2. Yetenek mi silah mı?</p>
+                <p id="question2-label">2. Yetenek mi silah mı?</p>
                 <label><input type="radio" name="q2" value="yetenek"> Yetenek</label>
                 <label><input type="radio" name="q2" value="silah"> Silah</label>
                 <label><input type="radio" name="q2" value="denge"> Denge</label>
@@ -38,7 +52,7 @@
             </div>
 
             <div class="question" style="display: none;">
-                <p>3. Harita kontrolü mü giriş mi?</p>
+                <p id="question3-label">3. Harita kontrolü mü giriş mi?</p>
                 <label><input type="radio" name="q3" value="kontrol"> Harita kontrolü</label>
                 <label><input type="radio" name="q3" value="giris"> Giriş yapmayı severim</label>
                 <label><input type="radio" name="q3" value="info"> Bilgi toplamak</label>
@@ -46,7 +60,7 @@
             </div>
 
             <div class="question" style="display: none;">
-                <p>4. Ekibinizde hangi rolü üstlenirsiniz?</p>
+                <p id="question4-label">4. Ekibinizde hangi rolü üstlenirsiniz?</p>
                 <label><input type="radio" name="q4" value="kontrol"> Giriş</label>
                 <label><input type="radio" name="q4" value="giris"> Duman</label>
                 <label><input type="radio" name="q4" value="info"> Destek</label>
@@ -54,7 +68,7 @@
             </div>
 
             <div class="question" style="display: none;">
-                <p>5. Oyun sonu (clutch) durumlarında nasıl davranırsınız?</p>
+                <p id="question5-label">5. Oyun sonu (clutch) durumlarında nasıl davranırsınız?</p>
                 <label><input type="radio" name="q5" value="kontrol"> Pusarım</label>
                 <label><input type="radio" name="q5" value="giris"> Yüzleşirim</label>
                 <label><input type="radio" name="q5" value="info"> Kaçarım</label>
@@ -62,7 +76,7 @@
             </div>
 
             <div class="question" style="display: none;">
-                <p>6. Hangi silahı sıklıkla kullanırsınız?</p>
+                <p id="question6-label">6. Hangi silahı sıklıkla kullanırsınız?</p>
                 <label><input type="radio" name="q6" value="kontrol"> Operatör</label>
                 <label><input type="radio" name="q6" value="giris"> Vandal</label>
                 <label><input type="radio" name="q6" value="info"> Phantom</label>
@@ -71,9 +85,9 @@
         </form>
 
         <div id="result" class="hidden">
-            <h2>Senin için en uygun ajanlar:</h2>
+            <h2 id="results-title">Senin için en uygun ajanlar:</h2>
             <div id="agentResults" class="agent-list"></div>
-            <button onclick="restartQuiz()">Yeniden Dene</button>
+            <button id="restartButton" onclick="restartQuiz()">Yeniden Dene</button>
         </div>
     </div>
 
