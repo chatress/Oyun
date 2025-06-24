@@ -1,4 +1,4 @@
-# Valorant Ajan Seçme Yardımcısı
+# Valorant Ajan Seçici
 
 ![alt text](https://sertacaga.github.io/valorant-app/komik.png)
 
